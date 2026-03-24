@@ -1,0 +1,18 @@
+# 图片资源目录
+
+请将以下图片放置在此目录：
+
+- merchant-avatar.png - 商家头像
+- product-1.jpg - 商品1主图
+- product-1-hero.jpg - 商品1详情页Hero图
+- product-2.jpg - 商品2主图
+- product-2-hero.jpg - 商品2详情页Hero图
+- product-3.jpg - 商品3主图
+- product-3-hero.jpg - 商品3详情页Hero图
+- product-4.jpg - 商品4主图
+- product-4-hero.jpg - 商品4详情页Hero图
+
+图片建议规格：
+- 商品主图：建议 400x400px 或更高分辨率，正方形
+- Hero图：建议宽度 600-800px，高度自适应
+- 商家头像：建议 200x200px，正方形

@@ -1,0 +1,144 @@
+{
+  "categories": [
+    { "id": "all", "name": "全部分类" },
+    { "id": "new", "name": "新品专区" },
+    { "id": "task", "name": "任务专区" },
+    { "id": "snack", "name": "零食饮料" },
+    { "id": "accompany", "name": "陪玩专区" },
+    { "id": "voucher", "name": "购物券" },
+    { "id": "game", "name": "游戏联盟" }
+  ],
+  "merchant": {
+    "name": "果壳电竞",
+    "avatar": "/images/merchant-avatar.png",
+    "followers": 25000
+  },
+  "products": [
+    {
+      "id": "1",
+      "categoryId": "accompany",
+      "title": "果壳电竞 勇敢者行动 双人陪玩模式",
+      "subtitle": "3h内陪玩和板板一起摸扑克牌,单局凑出特殊牌型后,叠加作为本单总保底时长。——————这里是副标题/简短描述",
+      "image": "/images/product-1.jpg",
+      "views": 14059,
+      "originalPrice": 3230.00,
+      "currentPrice": 2860.00,
+      "heroImage": "/images/product-1-hero.jpg",
+      "heroTitle": "勇敢者行动",
+      "heroSubtitle": "SU LING E-SPORTS",
+      "heroDescription": [
+        "两名陪陪带着老板",
+        "将任务做完",
+        "包带道具",
+        "具体内容",
+        "请查看详细页面"
+      ],
+      "serviceType": "欢乐斗地主-趣味陪玩小时单",
+      "details": [
+        "服务总时长和保底规则：",
+        "",
+        "1. 服务总时长：3小时内陪玩和板板一起摸扑克牌",
+        "2. 保底规则：单局凑出特殊牌型后，叠加作为本单总保底时长",
+        "",
+        "详细游戏规则：",
+        "",
+        "• 癞子的计算方式：癞子可以当作任意牌使用",
+        "• 炸弹：凑出炸弹牌型，额外加时30分钟",
+        "• 顺子：凑出顺子牌型，额外加时15分钟",
+        "• 王炸：凑出王炸牌型，额外加时60分钟",
+        "• 飞机：凑出飞机牌型，额外加时45分钟",
+        "",
+        "附加说明：",
+        "",
+        "Ps: 此单由陪玩选图噢！",
+        "陪陪不能藏牌扑克牌与红，均以摸出为准。",
+        "",
+        "关于护航的澄清：",
+        "护航是指陪玩全程保护老板，确保游戏体验。",
+        "",
+        "特殊说明：",
+        "陪玩给老板起枪额外加R"
+      ],
+      "additionalServices": [
+        { "name": "四套加半改四级蛋200发", "price": 15 },
+        { "name": "吴涛满改枪180发", "price": 180 },
+        { "name": "刘涛满改枪180发", "price": 180 },
+        { "name": "aw-把加10发", "price": 30 },
+        { "name": "6OR", "price": 60 },
+        { "name": "20R", "price": 20 }
+      ]
+    },
+    {
+      "id": "2",
+      "categoryId": "accompany",
+      "title": "果壳电竞 欢乐斗地主 娱乐陪玩",
+      "subtitle": "专业陪玩服务，提供优质游戏体验",
+      "image": "/images/product-2.jpg",
+      "views": 8560,
+      "originalPrice": 1288.00,
+      "currentPrice": 1288.00,
+      "heroImage": "/images/product-2-hero.jpg",
+      "heroTitle": "欢乐斗地主",
+      "heroSubtitle": "ENTERTAINMENT",
+      "heroDescription": [
+        "专业陪玩团队",
+        "优质服务体验",
+        "多种游戏模式"
+      ],
+      "serviceType": "欢乐斗地主-娱乐陪玩",
+      "details": [
+        "提供专业的欢乐斗地主陪玩服务，包括多种游戏模式和玩法。"
+      ],
+      "additionalServices": [
+        { "name": "延长服务时间", "price": 50 },
+        { "name": "VIP专属服务", "price": 100 }
+      ]
+    },
+    {
+      "id": "3",
+      "categoryId": "snack",
+      "title": "果壳电竞 HelloKitty电视机造型小夜灯",
+      "subtitle": "可爱HelloKitty主题小夜灯，温馨陪伴",
+      "image": "/images/product-3.jpg",
+      "views": 3200,
+      "originalPrice": 88.00,
+      "currentPrice": 68.00,
+      "heroImage": "/images/product-3-hero.jpg",
+      "heroTitle": "HelloKitty小夜灯",
+      "heroSubtitle": "CUTE LIGHT",
+      "heroDescription": [
+        "HelloKitty主题设计",
+        "温馨小夜灯",
+        "精美包装"
+      ],
+      "serviceType": "周边商品",
+      "details": [
+        "HelloKitty电视机造型小夜灯，采用优质材料制作，温馨可爱。"
+      ],
+      "additionalServices": []
+    },
+    {
+      "id": "4",
+      "categoryId": "voucher",
+      "title": "果壳电竞 联名优酷会员年卡专享名称超...",
+      "subtitle": "优酷会员年卡，享受全年VIP服务",
+      "image": "/images/product-4.jpg",
+      "views": 5200,
+      "originalPrice": 198.00,
+      "currentPrice": 168.00,
+      "heroImage": "/images/product-4-hero.jpg",
+      "heroTitle": "优酷会员年卡",
+      "heroSubtitle": "YOUKU VIP",
+      "heroDescription": [
+        "全年VIP服务",
+        "海量影视资源",
+        "专属特权"
+      ],
+      "serviceType": "会员服务",
+      "details": [
+        "果壳电竞联名优酷会员年卡，享受全年VIP服务，海量影视资源任你看。"
+      ],
+      "additionalServices": []
+    }
+  ]
+}
