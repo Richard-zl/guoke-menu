@@ -130,7 +130,7 @@
         <!-- 体验单 / 护航单：点单说明（共用文案，置于规则详情最下方） -->
         <div v-if="showOrderingNotice" class="ordering-notice-block">
           <h4 class="ordering-notice-heading">点单说明</h4>
-          <div class="details-text ordering-notice-text">{{ orderingNoticeText }}</div>
+          <div class="details-text ordering-notice-text">{{ displayOrderingNotice }}</div>
         </div>
       </div>
     </div>
@@ -151,8 +151,16 @@ const route = useRoute()
 const detailsExpanded = ref(true)
 const product = ref(null)
 const merchant = ref(menuData.merchant)
-/** 与 menu.js 中 orderingNotice 同步 */
+/** 与 menu.js 中 orderingNotice 同步；单条订单可设 orderingNoticeOverride 覆盖 */
 const orderingNoticeText = menuData.orderingNotice ?? ''
+
+/** 点单说明正文：优先使用订单上的 orderingNoticeOverride（如零号大坝机密体验单） */
+const displayOrderingNotice = computed(() => {
+  const p = product.value
+  if (!p) return ''
+  if (p.orderingNoticeOverride) return p.orderingNoticeOverride
+  return orderingNoticeText
+})
 
 const displayPrice = computed(() => {
   if (!product.value) return ''
@@ -181,11 +189,12 @@ const showPlaymateTable = computed(() => {
   return p.orderType === 'playmate_map' || p.orderType === 'playmate_female'
 })
 
-/** 特色体验单、护航单详情底部展示点单说明 */
+/** 特色体验单、护航单详情底部展示点单说明（可有单条 override） */
 const showOrderingNotice = computed(() => {
   const p = product.value
-  if (!p || !orderingNoticeText) return false
-  return p.categoryId === 'experience' || p.categoryId === 'escort'
+  if (!p) return false
+  if (p.categoryId !== 'experience' && p.categoryId !== 'escort') return false
+  return !!(p.orderingNoticeOverride || orderingNoticeText)
 })
 
 const formatNumber = (num) => {

@@ -137,6 +137,19 @@ const ORDERING_NOTICE = `
 — 最终解释权归果壳电竞所有 —
 `.trim()
 
+/** 特色体验单「零号大坝（机密）」专用点单说明（与全局点单说明互斥展示） */
+const ORDERING_NOTICE_ZERO_DAM = `
+1）护航单
+  地图由打手优先选择，模式须为机密。
+
+2）炸单说明
+  撤离失败且本局带出物资价值小于 20W：计为炸单。
+  带出价值在 20W 及以上：不计炸单、计入保底（以店内细则为准）。
+  炸单补偿 20W/局。
+
+— 最终解释权归果壳电竞所有 —
+`.trim()
+
 export default {
   /** 供详情页底部展示 */
   orderingNotice: ORDERING_NOTICE,
@@ -182,6 +195,8 @@ export default {
 下单时请说明本体验单类型，避免与正式护航混淆。
       `.trim(),
       ruleItems: [{ title: '限制', content: '每人限一单' }],
+      /** 本单详情页底部「点单说明」单独文案，不沿用全局 ORDERING_NOTICE */
+      orderingNoticeOverride: ORDERING_NOTICE_ZERO_DAM,
       priority: 100,
       isHot: true,
       showInList: true,
@@ -373,7 +388,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('1888R · 累积保底2888W', 1888, 'R', 2888, 'W'),
       details: `
-一、1888R 护航的一天 — 具体规则如下：
+1888R 护航的一天 — 具体规则如下：
 
 1. 找寻电脑
    护航上班需要一台笔记本电脑，或组装一台电脑（CPU、高速固态硬盘、电脑主板、内存条、液晶显示器、电源、鼠标、键盘）。
@@ -439,7 +454,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('288R 保底888W', 288, 'R', 888, 'W'),
       details: `
-二、AI改枪单
+AI改枪单
 
 价格：288R，保底 888W。
 
@@ -473,7 +488,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('888R普通 / 1888R魔王', 888, 'R', null, null),
       details: `
-三、魔王连连撤
+魔王连连撤
 
 普通版：888R
   需连续三局，每局 500W 撤离成功。
@@ -508,7 +523,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('588R · 塔主至少2000W', 588, 'R', 2000, 'W'),
       details: `
-四、沙色保险箱趣味单
+沙色保险箱趣味单
 
 价格：588R
 
@@ -550,7 +565,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('158R / 588R / 1188R 三档', 158, 'R', null, null),
       details: `
-五、沙保连连看 — 一直开一直爽
+沙保连连看 — 一直开一直爽
 
 【158R 档】
 单局 2 个 + 累计 688W。
@@ -592,7 +607,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('1288R 保底4688W', 1288, 'R', 4688, 'W'),
       details: `
-六、回家的诱惑
+回家的诱惑
 
 价格：1288R，保底 4688W。
 
@@ -621,7 +636,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('688R 保底3288W', 688, 'R', 3288, 'W'),
       details: `
-七、维护航天秩序人人有责
+维护航天秩序人人有责
 
 价格：688R，保底 3288W。
 
@@ -653,7 +668,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('228R · 五把撤离', 228, 'R', null, null),
       details: `
-八、谁是大坝KING？
+谁是大坝KING？
 
 价格：228R。
 
@@ -679,7 +694,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('228R 保底888W', 228, 'R', 888, 'W'),
       details: `
-九、十二金宵
+十二金宵
 
 价格：228R，保底 888W。
 
@@ -712,7 +727,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('888R 单局', 888, 'R', null, null),
       details: `
-十、满载而归
+满载而归
 
 价格：888R，单局结算。
 
@@ -749,7 +764,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('568R · 单局708W结单', 568, 'R', 708, 'W'),
       details: `
-十一、无限续杯单
+无限续杯单
 
 价格：568R。
 
@@ -786,7 +801,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('288R 保底888W', 288, 'R', 888, 'W'),
       details: `
-十二、牛马单
+牛马单
 
 价格：288R，保底 888W。
 
@@ -818,7 +833,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('298R 保底888W', 298, 'R', 888, 'W'),
       details: `
-十三、素质单
+素质单
 
 价格：298R，保底 888W。
 
@@ -854,7 +869,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('398R 保底1588W', 398, 'R', 1588, 'W'),
       details: `
-十四、大闹天宫单
+大闹天宫单
 
 价格：398R，保底 1588W。
 
@@ -904,7 +919,7 @@ export default {
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('520R / 1314R 双档', 520, 'R', null, null),
       details: `
-十五、恋爱日记
+恋爱日记
 
 【520R 档】
 基础保底 1314W，上限保底 5200W。
