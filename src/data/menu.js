@@ -1,10 +1,10 @@
 // 订单数据配置（静态）
-// 分类 Tab：全部分类 + 特色体验单 / 护航单 / 陪玩单 / 趣味单 / 大红对赌单 / 跑刀专区
+// 分类 Tab：全部分类 + 特色体验单 / 护航单 / 陪玩单 / 趣味单 / 大红对赌单 / 跑刀专区 / 任务专区
 // orderType：experience | escort_formal | escort_prison | playmate_map | playmate_female |
 //   fun_escort_day | fun_ai_gun | fun_demon_streak | fun_sand_safe | fun_sand_match |
 //   fun_home_temptation | fun_space_order | fun_dam_king | fun_twelve_gold | fun_full_load |
 //   fun_infinite_refill | fun_cattle_horse | fun_quality | fun_heaven_havoc | fun_love_diary | bigred |
-//   knife_run_tier
+//   knife_run_tier | task_zone_special_dept
 
 const mkPricing = (rawText, priceValue, priceUnit, guaranteeValue, guaranteeUnit) => ({
   rawText,
@@ -161,7 +161,8 @@ export default {
     { id: 'playmate', name: '陪玩单' },
     { id: 'fun', name: '趣味单' },
     { id: 'bigred', name: '大红对赌单' },
-    { id: 'knife_run', name: '跑刀专区' }
+    { id: 'knife_run', name: '跑刀专区' },
+    { id: 'task_zone', name: '任务专区' }
   ],
   merchant: {
     name: '果壳电竞',
@@ -1115,6 +1116,73 @@ AI改枪单
       isHot: false,
       showInList: true,
       views: 1160
+    },
+    // --- 任务专区（特勤处 · 五部门等级代练价目）---
+    {
+      id: 'task-zone-special-dept-price',
+      categoryId: 'task_zone',
+      orderType: 'task_zone_special_dept',
+      series: '任务专区',
+      title: '特勤处 · 五部门等级代练价目 · 158r～888r',
+      subtitle: '单部门全包 / 分级升级 / 五部门打包（包损耗）；等级区间含义见详情',
+      tags: ['任务专区', '特勤处', '部门等级'],
+      image: asset('images/rules/task-zone-price.png'),
+      heroImage: asset('images/rules/task-zone-price.png'),
+      heroTitle: '任务专区价目',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('158r～888r · 特勤处价目', 158, 'R', null, null),
+      details: `
+任务专区 · 特勤处部门等级代练
+
+等级区间含义（与价目表一致）：
+· 「1～4」表示从 1 级升至 4 级（整段代练）。
+· 「1～2」「2～3」「3～4」表示相邻等级段升级单价。
+· 五部门：战斗、医疗、战术、后勤、研发。
+
+一、单部门 1 级→4 级（全包）
+  战斗部门：240r
+  医疗部门：210r
+  战术部门：200r
+  后勤部门：220r
+  研发部门：215r
+
+二、单部门分级（相邻等级段）
+  战斗部门：1→2＝40r；2→3＝85r；3→4＝130r
+  医疗部门：1→2＝35r；2→3＝85r；3→4＝115r
+  战术部门：1→2＝35r；2→3＝75r；3→4＝105r
+  后勤部门：1→2＝35r；2→3＝80r；3→4＝130r
+  研发部门：1→2＝35r；2→3＝75r；3→4＝120r
+
+三、五部门打包（包损耗）
+  1→2：158r
+  1→3：458r
+  1→4：888r
+  2→3：368r
+  2→4：588r
+  3→4：428r
+
+下单时请说明当前部门等级与目标区间；具体履约与损耗范围以客服确认为准。
+      `.trim(),
+      ruleItems: [
+        {
+          title: '单部门 1→4（全包）',
+          content: '战斗240r · 医疗210r · 战术200r · 后勤220r · 研发215r'
+        },
+        { title: '战斗 · 分级', content: '1→2：40r；2→3：85r；3→4：130r' },
+        { title: '医疗 · 分级', content: '1→2：35r；2→3：85r；3→4：115r' },
+        { title: '战术 · 分级', content: '1→2：35r；2→3：75r；3→4：105r' },
+        { title: '后勤 · 分级', content: '1→2：35r；2→3：80r；3→4：130r' },
+        { title: '研发 · 分级', content: '1→2：35r；2→3：75r；3→4：120r' },
+        {
+          title: '五部门打包（包损耗）',
+          content: '1→2：158r；1→3：458r；1→4：888r；2→3：368r；2→4：588r；3→4：428r'
+        },
+        { title: '备注', content: '细则以店内与客服确认为准' }
+      ],
+      priority: 45,
+      isHot: false,
+      showInList: true,
+      views: 1150
     }
   ]
 }
