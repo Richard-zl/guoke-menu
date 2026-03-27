@@ -77,3 +77,13 @@ npm run build
 - 查看 `README.md` 了解项目详细说明
 - 查看 `DEPLOY.md` 了解部署步骤
 - 根据需要修改样式和功能
+
+
+## 部署与集成
+
+# 进入项目目录
+- ssh root@49.232.29.2
+- cd /home/guoke-menu
+
+# 执行部署脚本
+- bash deploy.sh

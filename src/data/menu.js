@@ -1,9 +1,10 @@
 // 订单数据配置（静态）
-// 分类 Tab：全部分类 + 特色体验单 / 护航单 / 陪玩单 / 趣味单 / 大红对赌单
+// 分类 Tab：全部分类 + 特色体验单 / 护航单 / 陪玩单 / 趣味单 / 大红对赌单 / 跑刀专区
 // orderType：experience | escort_formal | escort_prison | playmate_map | playmate_female |
 //   fun_escort_day | fun_ai_gun | fun_demon_streak | fun_sand_safe | fun_sand_match |
 //   fun_home_temptation | fun_space_order | fun_dam_king | fun_twelve_gold | fun_full_load |
-//   fun_infinite_refill | fun_cattle_horse | fun_quality | fun_heaven_havoc | fun_love_diary | bigred
+//   fun_infinite_refill | fun_cattle_horse | fun_quality | fun_heaven_havoc | fun_love_diary | bigred |
+//   knife_run_tier
 
 const mkPricing = (rawText, priceValue, priceUnit, guaranteeValue, guaranteeUnit) => ({
   rawText,
@@ -159,7 +160,8 @@ export default {
     { id: 'escort', name: '护航单' },
     { id: 'playmate', name: '陪玩单' },
     { id: 'fun', name: '趣味单' },
-    { id: 'bigred', name: '大红对赌单' }
+    { id: 'bigred', name: '大红对赌单' },
+    { id: 'knife_run', name: '跑刀专区' }
   ],
   merchant: {
     name: '果壳电竞',
@@ -1010,6 +1012,109 @@ AI改枪单
       isHot: true,
       showInList: true,
       views: 1200
+    },
+    // --- 跑刀专区（保险箱档位：九格 / 六格 / 四格）---
+    {
+      id: 'knife-run-9grid',
+      categoryId: 'knife_run',
+      orderType: 'knife_run_tier',
+      series: '跑刀专区',
+      title: '跑刀 · 九格保险 · 60R=1000W',
+      subtitle: '适用九格安全箱 · 保底 1000 万（哈夫币/带出价值以店内约定为准）',
+      tags: ['跑刀专区', '九格保险', '保底'],
+      image: asset('images/rules/order-12.webp'),
+      heroImage: asset('images/rules/order-12.webp'),
+      heroTitle: '九格保险跑刀',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('60R 保底1000W', 60, 'R', 1000, 'W'),
+      details: `
+跑刀专区 · 九格保险
+
+价格：60R，保底 1000W（万）。
+
+适用说明：
+· 本单按「九格安全箱」档位计价与履约；下单时请说明当前账号保险箱为九格。
+
+玩法说明：
+· 跑刀为低战备进图、以搜刮与撤离为主的玩法；具体地图、模式与结单规则以客服/打手确认为准。
+      `.trim(),
+      ruleItems: [
+        { title: '档位', content: '九格保险' },
+        { title: '价格/保底', content: '60R = 1000W' },
+        { title: '备注', content: '细则以店内与客服确认为准' }
+      ],
+      priority: 48,
+      isHot: false,
+      showInList: true,
+      views: 1180
+    },
+    {
+      id: 'knife-run-6grid',
+      categoryId: 'knife_run',
+      orderType: 'knife_run_tier',
+      series: '跑刀专区',
+      title: '跑刀 · 六格保险 · 70R=1000W',
+      subtitle: '适用六格安全箱 · 保底 1000 万（哈夫币/带出价值以店内约定为准）',
+      tags: ['跑刀专区', '六格保险', '保底'],
+      image: asset('images/rules/order-13.webp'),
+      heroImage: asset('images/rules/order-13.webp'),
+      heroTitle: '六格保险跑刀',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('70R 保底1000W', 70, 'R', 1000, 'W'),
+      details: `
+跑刀专区 · 六格保险
+
+价格：70R，保底 1000W（万）。
+
+适用说明：
+· 本单按「六格安全箱」档位计价与履约；下单时请说明当前账号保险箱为六格。
+
+玩法说明：
+· 跑刀为低战备进图、以搜刮与撤离为主的玩法；具体地图、模式与结单规则以客服/打手确认为准。
+      `.trim(),
+      ruleItems: [
+        { title: '档位', content: '六格保险' },
+        { title: '价格/保底', content: '70R = 1000W' },
+        { title: '备注', content: '细则以店内与客服确认为准' }
+      ],
+      priority: 47,
+      isHot: false,
+      showInList: true,
+      views: 1170
+    },
+    {
+      id: 'knife-run-4grid',
+      categoryId: 'knife_run',
+      orderType: 'knife_run_tier',
+      series: '跑刀专区',
+      title: '跑刀 · 四格保险 · 80R=1000W',
+      subtitle: '适用四格安全箱 · 保底 1000 万（哈夫币/带出价值以店内约定为准）',
+      tags: ['跑刀专区', '四格保险', '保底'],
+      image: asset('images/rules/order-14.webp'),
+      heroImage: asset('images/rules/order-14.webp'),
+      heroTitle: '四格保险跑刀',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('80R 保底1000W', 80, 'R', 1000, 'W'),
+      details: `
+跑刀专区 · 四格保险
+
+价格：80R，保底 1000W（万）。
+
+适用说明：
+· 本单按「四格安全箱」档位计价与履约；下单时请说明当前账号保险箱为四格。
+
+玩法说明：
+· 跑刀为低战备进图、以搜刮与撤离为主的玩法；具体地图、模式与结单规则以客服/打手确认为准。
+      `.trim(),
+      ruleItems: [
+        { title: '档位', content: '四格保险' },
+        { title: '价格/保底', content: '80R = 1000W' },
+        { title: '备注', content: '细则以店内与客服确认为准' }
+      ],
+      priority: 46,
+      isHot: false,
+      showInList: true,
+      views: 1160
     }
   ]
 }
