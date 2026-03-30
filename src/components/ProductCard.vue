@@ -2,9 +2,10 @@
   <div class="product-card" @click="goToDetail">
     <div class="product-image-wrapper">
       <img :src="product.image" :alt="product.title" class="product-image" />
-      <div v-if="primaryTag" class="product-badge">{{ primaryTag }}</div>
     </div>
     <div class="product-info">
+      <!-- 分类角标放在图下，避免盖住封面插画 -->
+      <div v-if="primaryTag" class="product-badge">{{ primaryTag }}</div>
       <h3 class="product-title">{{ product.title }}</h3>
       <div class="product-meta">
         <span class="product-views">浏览 {{ formatNumber(product.views) }}</span>
@@ -89,18 +90,25 @@ const goToDetail = () => {
 }
 
 .product-badge {
-  position: absolute;
-  left: 8px;
-  top: 8px;
-  background-color: rgba(229, 62, 62, 0.92);
+  display: inline-block;
+  align-self: flex-start;
+  max-width: 100%;
+  margin-bottom: 6px;
+  background-color: rgba(229, 62, 62, 0.95);
   color: #fff;
   padding: 2px 8px;
-  border-radius: 12px;
+  border-radius: 10px;
   font-size: 11px;
   font-weight: 600;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .product-info {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
 }
 
