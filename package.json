@@ -5,6 +5,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "generate:covers": "node scripts/generate-menu-covers.mjs",
+    "generate:covers:force": "node scripts/generate-menu-covers.mjs --force",
+    "import:ai-covers": "node scripts/import-ai-covers.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

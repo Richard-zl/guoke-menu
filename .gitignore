@@ -2,3 +2,5 @@ node_modules
 dist
 .DS_Store
 *.log
+# 可由 fun-prison-clear-map.webp 用 magick 转回，避免重复存大图
+public/images/covers/_style-ref-prison.png
