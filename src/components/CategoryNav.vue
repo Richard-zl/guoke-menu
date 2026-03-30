@@ -34,10 +34,15 @@ const selectCategory = (categoryId) => {
 </script>
 
 <style scoped>
+/* 与右侧列表同高；分类过多时仅本列内部滚动，不随商品列表一起滚 */
 .category-nav {
   width: 92px;
+  align-self: stretch;
+  min-height: 0;
   background-color: #f5f5f5;
+  overflow-x: hidden;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   flex-shrink: 0;
   border-right: 1px solid #ececec;
 }

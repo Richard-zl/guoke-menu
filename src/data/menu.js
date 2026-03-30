@@ -3,8 +3,9 @@
 // orderType：experience | escort_formal | escort_prison | playmate_map | playmate_female |
 //   fun_escort_day | fun_ai_gun | fun_demon_streak | fun_sand_safe | fun_sand_match |
 //   fun_home_temptation | fun_space_order | fun_dam_king | fun_twelve_gold | fun_full_load |
-//   fun_infinite_refill | fun_cattle_horse | fun_quality | fun_heaven_havoc | fun_love_diary | bigred |
-//   knife_run_tier | task_zone_special_dept
+//   fun_infinite_refill | fun_cattle_horse | fun_quality | fun_heaven_havoc | fun_love_diary |
+//   fun_prison_clear_map | fun_operator_match | fun_bridge_block | fun_bingo_bigred | bigred |
+//   bigred_special_ocean_tear | knife_run_tier | task_zone_special_dept
 
 const mkPricing = (rawText, priceValue, priceUnit, guaranteeValue, guaranteeUnit) => ({
   rawText,
@@ -376,7 +377,104 @@ export default {
       views: 2800
     },
 
-    // --- 趣味单（5 条独立玩法）---
+    // --- 趣味单（多条独立玩法）---
+    {
+      id: 'fun-prison-clear-map',
+      categoryId: 'fun',
+      orderType: 'fun_prison_clear_map',
+      series: '趣味单',
+      title: '监狱清图单 · 588R',
+      subtitle: '清图两把；走最后一个闸撤离；全图无枪声',
+      tags: ['趣味单', '绝密监狱', '清图', '潜入'],
+      image: asset('images/rules/order-10.webp'),
+      heroImage: asset('images/rules/order-10.webp'),
+      heroTitle: '监狱清图单',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('588R · 清图两把', 588, 'R', null, null),
+      details: `
+监狱清图单（趣味挑战向）
+
+价格：588R
+
+地图与目标：
+· 默认：绝密监狱；若与店内约定不一致，以客服确认为准。
+· 清图两把：共完成两局「清图」履约（单局清图定义以店内/打手说明为准）。
+· 撤离：须走「最后一个闸」撤离（以当局可用闸点与店内解释为准）。
+
+特殊限制：
+· 全图无枪声：履约过程中全图不得出现枪声（具体判定、例外情形如人机/剧情等以客服与打手执行为准）。
+
+下单时请说明本单为「监狱清图单」，并与客服确认当前赛季地图与闸点规则。
+      `.trim(),
+      ruleItems: [
+        { title: '价格', content: '588R' },
+        { title: '清图', content: '两把（两局）' },
+        { title: '撤离', content: '走最后一个闸' },
+        { title: '限制', content: '全图无枪声（细则以客服确认为准）' }
+      ],
+      priority: 83,
+      isHot: true,
+      showInList: true,
+      views: 3650
+    },
+    {
+      id: 'fun-bingo-bigred-lianliankan',
+      categoryId: 'fun',
+      orderType: 'fun_bingo_bigred',
+      series: '趣味单',
+      title: 'bingo大红连连看 · 488r～1888r',
+      subtitle: '8×8 棋盘参照图；横/竖/斜连成 N 格结单（详见规则）',
+      tags: ['趣味单', 'Bingo', '大红连连看'],
+      image: asset('images/rules/bingo-bigred-lianliankan.png'),
+      heroImage: asset('images/rules/bingo-bigred-lianliankan.png'),
+      heroTitle: 'bingo大红连连看',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('488r～1888r · 四档 Bingo', 488, 'R', null, null),
+      details: `
+bingo 大红连连看（趣味单）
+
+棋盘：
+· 以本单配图中的 8×8 大红物资棋盘为准；每格对应一种指定大红（以图为准）。
+
+四档价目（下单时请说明档位）：
+· Bingo 三连：488r，保底 1088W（万）
+· Bingo 四连：788r，保底 1588W（万）
+· Bingo 五连：1288r，保底 2088W（万）
+· Bingo 六连：1888r，保底 3288W（万）
+
+结单条件（与所选 N 一致，N=3/4/5/6）：
+· 在对局中获得与棋盘上 **N 个格子** 相对应的大红，且这 N 格在棋盘上位于 **同一条直线** 上，方向可为 **横、竖或斜**（斜线为 45°/135° 方向上连续相邻格，长度满足 N 即可）。
+· **不限定开局前固定一条线**：任意一条满足上述条件的直线凑齐即视为达成（以店内执行为准）。
+
+万能牌（赖子）：
+· 「海洋之泪」「非洲之心」可作为万能牌，**代替该直线上任意一格** 所要求的大红（每格仍需满足「一格对应一次有效计格」的口径，详见下条）。
+
+计格与「红保险」：
+· 目标大红须进入 **安全箱（红保险）** 方可按格计数；按店内规则，**已在红保险内的对应物资，即使当局撤离失败，仍可计亮该棋格**（与未入保、背包内物资区分，以客服/截图核验为准）。
+· 同一直线上 **同一棋格仅计一次**；重复摸到同一格对应物不重复折线。
+
+保底（W）：
+· **趣味单：撤离失败不加保底**——未达结单条件或店内认定的失败情形，**不因此叠加、上浮** 约定保底额度；与「安全箱内物资是否可点亮格子」按上款区分执行。
+
+说明：本玩法与「沙保连连看」等为不同规则单；细节以客服与打手最终解释为准。
+      `.trim(),
+      ruleItems: [
+        { title: 'Bingo 三连', content: '488r · 保底 1088W' },
+        { title: 'Bingo 四连', content: '788r · 保底 1588W' },
+        { title: 'Bingo 五连', content: '1288r · 保底 2088W' },
+        { title: 'Bingo 六连', content: '1888r · 保底 3288W' },
+        { title: '连线', content: '横/竖/斜连续 N 格；任意合法一条线凑齐即可（以店内为准）' },
+        { title: '万能牌', content: '海洋之泪、非洲之心可代替直线上任意一格' },
+        {
+          title: '保险与保底',
+          content: '红保险（安全箱）内物资撤离失败仍可计格；趣味单撤离失败不加保底 W'
+        }
+      ],
+      priority: 87,
+      isHot: true,
+      showInList: true,
+      views: 3720
+    },
     {
       id: 'fun-escort-day-1888',
       categoryId: 'fun',
@@ -967,6 +1065,87 @@ AI改枪单
       views: 2220
     },
     {
+      id: 'fun-operator-match',
+      categoryId: 'fun',
+      orderType: 'fun_operator_match',
+      series: '趣味单',
+      title: '干员消消乐 · 228R 保底888W',
+      subtitle: '打手必须与老板选用同一干员（以当局选用为准）',
+      tags: ['趣味单', '干员消消乐', '同干员'],
+      image: asset('images/rules/order-15.webp'),
+      heroImage: asset('images/rules/order-15.webp'),
+      heroTitle: '干员消消乐',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('228R 保底888W', 228, 'R', 888, 'W'),
+      details: `
+干员消消乐
+
+价格：228R，保底 888W（万）。
+
+核心规则：
+· 打手必须跟老板选择「同一干员」进局并完成履约；具体干员由老板先选或双方约定，以当局实际选用为准。
+
+其他：
+· 带出/结算口径以店内与客服确认为准。
+      `.trim(),
+      ruleItems: [
+        { title: '价格/保底', content: '228R · 保底 888W' },
+        { title: '干员', content: '打手与老板必须同干员' },
+        { title: '备注', content: '细则以客服确认为准' }
+      ],
+      priority: 86,
+      isHot: true,
+      showInList: true,
+      views: 3700
+    },
+    {
+      id: 'fun-bridge-block',
+      categoryId: 'fun',
+      orderType: 'fun_bridge_block',
+      series: '趣味单',
+      title: '堵桥单 · CS版68R / 得吃版188R',
+      subtitle: '堵桥玩法双版本：无保底挑战版与乌鲁鲁得吃保底版（见详情）',
+      tags: ['趣味单', '堵桥', '航天'],
+      image: asset('images/rules/order-09.webp'),
+      heroImage: asset('images/rules/order-09.webp'),
+      heroTitle: '堵桥单',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('68R无保底 / 188R保底688W', 68, 'R', null, null),
+      details: `
+堵桥单（含 CS 版、得吃版两档，下单时请说明版本）
+
+【CS 版 · 68R】
+· 无保底。
+· 全程堵桥：共打一把，以堵桥玩法为主（地图与点位以店内约定为准）。
+· 流程节奏：15 分钟后进入「飞弹乱飞、互相宣战」等高强度对抗阶段，玩法向描述为「大家都别走」。
+· 本局须存活满 15 分钟（存活判定以当局与客服解释为准）。
+
+【得吃版 · 188R】
+· 保底 688W（万）。
+· 打手必须选用干员「乌鲁鲁」。
+· 第一把：全程堵桥；15 分钟后同样进入飞弹乱飞、宣战等阶段。
+· 加保底规则：
+  · 若放跑一人：保底 +50W。
+  · 若打手被踢死：保底 +300W。
+· 若第一把累计未打满约定保底，后续对局仅用于「补足保底」，无需再执行堵桥玩法。
+
+其他：
+· 具体地图、闸点与结单标准以客服确认为准。
+      `.trim(),
+      ruleItems: [
+        { title: 'CS 版', content: '68R 无保底 · 堵桥一把 · 须存活15分钟 · 15分钟后高强度对抗阶段' },
+        {
+          title: '得吃版',
+          content: '188R 保底688W · 打手固定乌鲁鲁 · 首局堵桥+15分钟后阶段 · 放跑一人+50W · 被踢死+300W · 未够保底后续免堵桥补'
+        },
+        { title: '备注', content: '下单注明版本；细则以客服确认为准' }
+      ],
+      priority: 85,
+      isHot: true,
+      showInList: true,
+      views: 3680
+    },
+    {
       id: 'bigred-catalog',
       categoryId: 'bigred',
       orderType: 'bigred',
@@ -1013,6 +1192,45 @@ AI改枪单
       isHot: true,
       showInList: true,
       views: 1200
+    },
+    {
+      id: 'bigred-special-ocean-tear',
+      categoryId: 'bigred',
+      orderType: 'bigred_special_ocean_tear',
+      series: '大红对赌单',
+      title: '特别单（海洋之泪）· 3888R',
+      subtitle: '必出海洋之泪；老板自备 1 亿哈夫币，超出部分由打手负责',
+      tags: ['大红对赌', '特别单', '海洋之泪'],
+      image: asset('images/rules/order-08.webp'),
+      heroImage: asset('images/rules/order-08.webp'),
+      heroTitle: '特别单 · 海洋之泪',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('3888R 必出海洋之泪 · 自备1亿哈夫币', 3888, 'R', null, null),
+      details: `
+大红对赌单 · 特别单（海洋之泪）
+
+价格：3888R
+
+履约目标：
+· 必出「海洋之泪」（以游戏内实际获得为准）。
+
+哈夫币与成本：
+· 老板需自备 1 亿哈夫币作为本单基础资金/物资池。
+· 超出 1 亿哈夫币的部分，由打手负责（具体范围与结单标准以客服确认为准）。
+
+其他：
+· 本特别单与价目表中其他大红对赌档位独立计价；对赌类规则（如折扣券、撤离结单等）以店内与客服答复为准。
+      `.trim(),
+      ruleItems: [
+        { title: '价格', content: '3888R' },
+        { title: '目标', content: '必出海洋之泪' },
+        { title: '哈夫币', content: '老板自备 1 亿；超出部分打手负责' },
+        { title: '备注', content: '细则以客服确认为准' }
+      ],
+      priority: 52,
+      isHot: true,
+      showInList: true,
+      views: 1250
     },
     // --- 跑刀专区（保险箱档位：九格 / 六格 / 四格）---
     {

@@ -84,11 +84,16 @@ const filteredProducts = computed(() => {
 </script>
 
 <style scoped>
+/* 固定为视口高度，避免整页滚动带动左侧 Tab */
 .menu-view {
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
   background-color: #fff;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .header {
@@ -114,15 +119,20 @@ const filteredProducts = computed(() => {
   color: #8b8b8b;
 }
 
+/* min-height:0 让 flex 子项可被压缩，内部才出现独立滚动条 */
 .content-wrapper {
   flex: 1;
+  min-height: 0;
   display: flex;
   overflow: hidden;
 }
 
 .product-list-wrapper {
   flex: 1;
+  min-width: 0;
+  min-height: 0;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 12px;
   background-color: #f5f5f5;
 }
