@@ -86,7 +86,9 @@ const goToDetail = () => {
   left: 0;
   width: 100%;
   height: 100%;
+  /* 列表区 1:1；正方形封面与容器同比例时整图可见。非正方形时居中裁切 */
   object-fit: cover;
+  object-position: center;
 }
 
 .product-badge {

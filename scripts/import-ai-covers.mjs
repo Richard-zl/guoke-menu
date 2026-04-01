@@ -7,7 +7,16 @@
  * 用法：
  *   node scripts/import-ai-covers.mjs /path/to/folder/with/_ai_*.png
  *
- * 风格参考：用 fun-prison-clear-map 转 PNG 作 reference（与本仓库 generate-menu-covers 顶部说明一致）。
+ * 风格与参考图（重要）
+ * ---------------------------------------------------------------------------
+ * 监狱清图单 fun-prison-clear-map 常见构图含「竖指贴唇、禁声」——对应「全图无枪声」玩法。
+ * 若把该整张图作为 AI 的 reference / 图生图参考，模型往往会连「人物姿势、构图」一起复刻，
+ * 导致其它订单封面也出现同一动作；这不是脚本写死形容词，而是参考图语义过强。
+ *
+ * 建议：全站统一画风时优先用「纯文字描述」色板与笔触；若必须用参考图，请用无固定姿势的
+ * 背景/ UI 条素材，或对每条订单在 prompt 中明确写清动作与主题（并加 negative：
+ * no finger-to-lips, no shush gesture），监狱单单独保留其参考或单独出图。
+ * ---------------------------------------------------------------------------
  */
 import { spawnSync } from 'node:child_process'
 import { existsSync, readdirSync, unlinkSync } from 'node:fs'

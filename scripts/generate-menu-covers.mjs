@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 /**
- * 【推荐】正式封面：与「监狱清图单」fun-prison-clear-map 一致 —— 二次元战术插画风。
- * AI 出图后（建议以 _style-ref-prison.png 为风格参考）执行：
- *   node scripts/import-ai-covers.mjs <含 _ai_<id>.png 的目录>
+ * 【推荐】正式封面：二次元战术插画风（色板与笔触可对齐监狱清图单，但不要求同一人物姿势）。
+ * AI 出图后执行：node scripts/import-ai-covers.mjs <含 _ai_<id>.png 的目录>
+ *
+ * 勿把 fun-prison-clear-map 整图作全局 reference：图中「禁声」手势易被模型复制到所有封面。
+ * 非监狱类订单应在 prompt 里按玩法写动作/场景，并避免沿用监狱图作图生图参考（见 import-ai-covers 注释）。
  *
  * 下方 ImageMagick 渐变仅作应急占位；部分环境渐变合成异常会出现「白底黑字」，勿作正式素材。
  *
@@ -15,6 +17,16 @@
  * - 气质：二次元 / Q 版战术、撤离射击，暗色底，点缀 #e53e3e。
  * - 标题：白字深色描边；避免写实枪械特写。
  * - 输出：WebP q≈82；Bingo、任务价目表仍用 images/rules 下 PNG。
+ *
+ * 当前 public/images/covers/*.webp（订单封面）为 AI 按玩法定制的方图；请勿执行 generate:covers:force
+ * 以免用渐变占位覆盖。
+ *
+ * 与前端比例（避免误以为会被裁字）
+ * ---------------------------------------------------------------------------
+ * - 列表 ProductCard：图片区为 1:1（宽 = 高），object-fit: cover。源图为正方形 800×800 时
+ *   与容器比例一致，整图可见，不会因「比例不符」裁掉上下或左右。
+ * - 详情 hero：图片 width:100%，高度随图片固有比例；正方形封面整图展示，非 cover 裁切。
+ * - 若将来改用非正方形素材，列表会按 cover 居中裁切，重要文字请留在「中心安全区」或改 CSS。
  * ---------------------------------------------------------------------------
  */
 import { spawnSync } from 'node:child_process'
@@ -63,7 +75,8 @@ const COVERS = [
   ['bigred-special-ocean-tear', '#3a1028', '#6a2058', '大红对赌', '特别单 · 海洋之泪'],
   ['knife-run-9grid', '#0f2a32', '#1a4a58', '跑刀专区', '九格保险'],
   ['knife-run-6grid', '#0f2a32', '#1a4550', '跑刀专区', '六格保险'],
-  ['knife-run-4grid', '#0f2a32', '#1a4048', '跑刀专区', '四格保险']
+  ['knife-run-4grid', '#0f2a32', '#1a4048', '跑刀专区', '四格保险'],
+  // AI 维护、勿用本脚本覆盖：fun-prison-clear-map、insurance-3x3-s9-*
 ]
 
 function runMagick(outPng, c1, c2, line1, line2) {

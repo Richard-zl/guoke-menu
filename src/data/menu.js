@@ -1,11 +1,11 @@
 // 订单数据配置（静态）
-// 分类 Tab：全部分类 + 特色体验单 / 护航单 / 陪玩单 / 趣味单 / 大红对赌单 / 跑刀专区 / 任务专区
+// 分类 Tab：全部分类 + 特色体验单 / 护航单 / 陪玩单 / 趣味单 / 大红对赌单 / 跑刀专区 / 任务专区 / 3*3专区
 // orderType：experience | escort_formal | escort_prison | playmate_map | playmate_female |
 //   fun_escort_day | fun_ai_gun | fun_demon_streak | fun_sand_safe | fun_sand_match |
 //   fun_home_temptation | fun_space_order | fun_dam_king | fun_twelve_gold | fun_full_load |
 //   fun_infinite_refill | fun_cattle_horse | fun_quality | fun_heaven_havoc | fun_love_diary |
 //   fun_prison_clear_map | fun_operator_match | fun_bridge_block | fun_bingo_bigred | bigred |
-//   bigred_special_ocean_tear | knife_run_tier | task_zone_special_dept
+//   bigred_special_ocean_tear | knife_run_tier | task_zone_special_dept | insurance_3x3_boost
 
 const mkPricing = (rawText, priceValue, priceUnit, guaranteeValue, guaranteeUnit) => ({
   rawText,
@@ -163,7 +163,8 @@ export default {
     { id: 'fun', name: '趣味单' },
     { id: 'bigred', name: '大红对赌单' },
     { id: 'knife_run', name: '跑刀专区' },
-    { id: 'task_zone', name: '任务专区' }
+    { id: 'task_zone', name: '任务专区' },
+    { id: 'zone_3x3', name: '3*3专区' }
   ],
   merchant: {
     name: '果壳电竞',
@@ -1401,6 +1402,106 @@ AI改枪单
       isHot: false,
       showInList: true,
       views: 1150
+    },
+    // --- 3*3专区（S9 预约代肝 3×3 保险箱 · 三档）---
+    {
+      id: 'insurance-3x3-s9-quality',
+      categoryId: 'zone_3x3',
+      orderType: 'insurance_3x3_boost',
+      series: '3*3专区',
+      title: '预约 S9 · 3×3 保险箱 · 优质档',
+      subtitle: '950 元 · 无直播 · 打手补损耗 · 约 5 天完成',
+      tags: ['3*3专区', 'S9', '保险箱'],
+      image: asset(`images/covers/insurance-3x3-s9-quality.webp`),
+      heroImage: asset(`images/covers/insurance-3x3-s9-quality.webp`),
+      heroTitle: '3×3 保险箱 · 优质',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('950 元 · 包拿保险箱', 950, '元', null, null),
+      details: `
+预约 S9 赛季代肝 3×3 保险箱（优质档）
+
+服务：预约 3×3 包拿保险箱。
+履约：无直播；打手补损耗；约 5 天左右完成。
+
+下单就对接，开服秒上。赛季开放、任务与收集者等细则以游戏版本及客服确认为准。
+      `.trim(),
+      ruleItems: [
+        { title: '价格', content: '950 元' },
+        { title: '内容', content: '预约包拿 3×3 保险箱' },
+        { title: '形式', content: '无直播；打手补损耗' },
+        { title: '周期', content: '约 5 天完成（以店内执行为准）' }
+      ],
+      priority: 52,
+      isHot: false,
+      showInList: true,
+      views: 1180
+    },
+    {
+      id: 'insurance-3x3-s9-live',
+      categoryId: 'zone_3x3',
+      orderType: 'insurance_3x3_boost',
+      series: '3*3专区',
+      title: '预约 S9 · 3×3 保险箱 · 直播档',
+      subtitle: '活动价 888 元 · 直播打 · 打手补损耗 · 约 5 天（原价 990）',
+      tags: ['3*3专区', 'S9', '活动价'],
+      image: asset(`images/covers/insurance-3x3-s9-live.webp`),
+      heroImage: asset(`images/covers/insurance-3x3-s9-live.webp`),
+      heroTitle: '3×3 保险箱 · 直播',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('888 元 · 预约锁单活动价', 888, '元', null, null),
+      details: `
+预约 S9 赛季代肝 3×3 保险箱（直播档）
+
+服务：预约 3×3 包拿保险箱。
+履约：直播打；打手补损耗；约 5 天左右完成。
+
+现在预约锁单享受活动价：888 元（原价 990 元）。活动期限与规则以店内/客服确认为准。
+
+下单就对接，开服秒上。
+      `.trim(),
+      ruleItems: [
+        { title: '活动价', content: '888 元（预约锁单）' },
+        { title: '原价参考', content: '990 元' },
+        { title: '内容', content: '直播打 + 打手补损耗；约 5 天完成' },
+        { title: '备注', content: '细则以客服确认为准' }
+      ],
+      priority: 51,
+      isHot: true,
+      showInList: true,
+      views: 1200
+    },
+    {
+      id: 'insurance-3x3-s9-vip',
+      categoryId: 'zone_3x3',
+      orderType: 'insurance_3x3_boost',
+      series: '3*3专区',
+      title: '预约 S9 · 3×3 保险箱 · VIP 档',
+      subtitle: '1200 元 · 直播 + 补损耗 + 4 天搞定 + 超时退 20% + 包收集者',
+      tags: ['3*3专区', 'S9', 'VIP'],
+      image: asset(`images/covers/insurance-3x3-s9-vip.webp`),
+      heroImage: asset(`images/covers/insurance-3x3-s9-vip.webp`),
+      heroTitle: '3×3 保险箱 · VIP',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('1200 元 · VIP 全包', 1200, '元', null, null),
+      details: `
+预约 S9 赛季代肝 3×3 保险箱（VIP 档）
+
+服务：预约 3×3 包拿保险箱。
+履约：直播打；打手补损耗；目标约 4 天搞定；超时退 20%；包收集者全部（具体清单与认定以客服确认为准）。
+
+下单就对接，开服秒上。
+      `.trim(),
+      ruleItems: [
+        { title: '价格', content: '1200 元' },
+        { title: '权益', content: '直播打 + 打手补损耗 + 约 4 天搞定' },
+        { title: '保障', content: '超时退 20%（细则以店内为准）' },
+        { title: '收集者', content: '包收集者全部（以客服确认为准）' }
+      ],
+      priority: 50,
+      isHot: false,
+      showInList: true,
+      views: 1190
     }
+
   ]
 }
