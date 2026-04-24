@@ -95,6 +95,7 @@ npm run preview
 5. **上传文件**
    - 将 `dist/` 目录下的所有文件上传到存储桶根目录
    - 可以通过控制台上传或使用COS CLI工具
+   - **建议顺序**：先上传 `dist/assets/` 下带 hash 的 JS/CSS，再上传根目录的 `index.html`，避免用户在新 HTML 下请求到尚未上传的旧资源。
 
 6. **配置自定义域名**
    - 在COS控制台配置自定义域名
@@ -106,6 +107,23 @@ npm run preview
    - 添加加速域名
    - 配置源站为COS存储桶
    - 更新DNS解析指向CDN地址
+
+### 微信里还是旧界面？（无全站 CDN 时的缓存）
+
+Vite 构建后 **`assets/` 下的 JS、CSS 文件名带内容 hash**，换版即换 URL，可长期缓存。问题多半出在 **`index.html` 被微信或中间层强缓存**，仍指向上一版的入口脚本。
+
+1. **服务端（必做，比 meta 更可靠）**  
+   在 COS 控制台对 **`index.html`** 设置对象元数据（或上传时带上 HTTP 头）：  
+   `Cache-Control: no-cache` 或 `max-age=0, must-revalidate`  
+   对 **`assets/*`** 可设为 `Cache-Control: public, max-age=31536000, immutable`（文件名已带 hash，安全）。  
+   若前面还有 **Nginx / 边缘函数**，同样对 `location = /index.html`（或你的子路径入口）单独 `add_header Cache-Control "no-cache"`。
+
+2. **项目内（已做）**  
+   `index.html` 已加 `Cache-Control` / `Pragma` / `Expires` 的 meta，对部分 WebView 有辅助作用，**不能替代** COS/网关上的 `Cache-Control` 响应头。
+
+3. **发版与分享链接**  
+   - 对外投放的链接可在末尾加版本参数，例如 `https://你的域名/?v=20260424`（每次大改版改一次），微信常把不同 query 视为不同资源。  
+   - 用户侧可尝试：微信 **我 → 设置 → 通用 → 存储空间** 清理缓存，或复制链接到系统浏览器打开对比。
 
 ## 域名申请
 
@@ -127,7 +145,7 @@ npm run preview
 
 ## 数据管理
 
-所有商品数据存储在 `src/data/menu.json` 文件中。修改此文件即可更新商品信息。
+所有商品数据存储在 `src/data/menu.js` 文件中。修改此文件即可更新商品信息。
 
 数据结构包括：
 - 分类列表 (categories)
