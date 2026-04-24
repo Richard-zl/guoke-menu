@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 /**
- * 将 AI 导出的 PNG 批量转为 public/images/covers/<id>.webp（800×800，cwebp）。
+ * 将「外部 AI 工具」导出的卡通/插画 PNG 批量转为 public/images/covers/<id>.webp（800×800）。
+ * （generate-menu-covers.mjs 只做文字渐变占位，不能替代本脚本。）
  *
  * 约定：源目录内文件名为 _ai_<商品id>.png（与 menu.js 里 id 一致），例如 _ai_exp-zero-dam.png
  *
  * 用法：
  *   node scripts/import-ai-covers.mjs /path/to/folder/with/_ai_*.png
+ *   npm run import:ai-covers -- /path/to/folder
+ *
+ * 需本机：ImageMagick(magick) + cwebp。要导出的 id 列表：npm run list:ai-covers
  *
  * 风格与参考图（重要）
  * ---------------------------------------------------------------------------

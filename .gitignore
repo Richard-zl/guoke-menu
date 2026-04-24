@@ -1,5 +1,6 @@
 node_modules
 dist
+.tmp-ai-covers*
 .DS_Store
 *.log
 # 可由 fun-prison-clear-map.webp 用 magick 转回，避免重复存大图

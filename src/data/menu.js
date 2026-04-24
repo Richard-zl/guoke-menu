@@ -2,9 +2,13 @@
 // 分类 Tab：全部分类 + 特色体验单 / 护航单 / 陪玩单 / 趣味单 / 大红对赌单 / 跑刀专区 / 任务专区 / 3*3专区
 // orderType：experience | escort_formal | escort_prison | playmate_map | playmate_female |
 //   fun_escort_day | fun_ai_gun | fun_demon_streak | fun_sand_safe | fun_sand_match |
-//   fun_home_temptation | fun_space_order | fun_dam_king | fun_twelve_gold | fun_full_load |
+//   fun_home_temptation | fun_space_order | fun_dam_king | fun_twelve_gold |
+//   fun_full_load_basic | fun_full_load_advanced |
 //   fun_infinite_refill | fun_cattle_horse | fun_quality | fun_heaven_havoc | fun_love_diary |
-//   fun_prison_clear_map | fun_operator_match | fun_bridge_block | fun_bingo_bigred | bigred |
+//   fun_prison_clear_map | fun_operator_match | fun_bridge_block | fun_bingo_bigred |
+//   fun_space_ring_tour | fun_unspoken_secret | fun_golden_ammo_supplier | fun_raven_express |
+//   fun_shawshank_escape | fun_self_reliance_juemi | fun_shield_heal_double | fun_shield_heal_single |
+//   fun_brave_certificate_phase1 | fun_brave_certificate_phase2 | bigred |
 //   bigred_special_ocean_tear | knife_run_tier | task_zone_special_dept | insurance_3x3_boost
 
 const mkPricing = (rawText, priceValue, priceUnit, guaranteeValue, guaranteeUnit) => ({
@@ -426,8 +430,8 @@ export default {
       title: 'bingo大红连连看 · 488r～1888r',
       subtitle: '8×8 棋盘参照图；横/竖/斜连成 N 格结单（详见规则）',
       tags: ['趣味单', 'Bingo', '大红连连看'],
-      image: asset('images/rules/bingo-bigred-lianliankan.png'),
-      heroImage: asset('images/rules/bingo-bigred-lianliankan.png'),
+      image: asset('images/rules/bingo-bigred-lianliankan.jpg'),
+      heroImage: asset('images/rules/bingo-bigred-lianliankan.jpg'),
       heroTitle: 'bingo大红连连看',
       heroSubtitle: '果壳电竞',
       pricing: mkPricing('488r～1888r · 四档 Bingo', 488, 'R', null, null),
@@ -816,41 +820,84 @@ AI改枪单
       views: 2340
     },
     {
-      id: 'fun-full-load-888',
+      id: 'fun-full-load-basic-488',
       categoryId: 'fun',
-      orderType: 'fun_full_load',
+      orderType: 'fun_full_load_basic',
       series: '趣味单',
-      title: '满载而归 · 888R 单局',
-      subtitle: '金+红装满 40 格大红包撤离（详见计数规则）',
-      tags: ['趣味单', '满载而归', '红包'],
-      image: asset(`images/covers/fun-full-load-888.webp`),
-      heroImage: asset(`images/covers/fun-full-load-888.webp`),
-      heroTitle: '满载而归',
+      title: '满载而归 · 基础版 488R',
+      subtitle: '单局仅金/红计格；满耐红修算4格、一组金弹算1格；40格结单',
+      tags: ['趣味单', '满载而归', '基础版'],
+      image: asset(`images/covers/fun-full-load-basic-488.webp`),
+      heroImage: asset(`images/covers/fun-full-load-basic-488.webp`),
+      heroTitle: '满载而归 · 基础版',
       heroSubtitle: '果壳电竞',
-      pricing: mkPricing('888R 单局', 888, 'R', null, null),
+      pricing: mkPricing('488R 保底1288W · 单局40格', 488, 'R', 1288, 'W'),
       details: `
-满载而归
+满载而归 · 基础版
 
-价格：888R，单局结算。
+价格：488R，保底 1288W（万）。
 
-任务要求：使用金与红色物资装满 40 格大红包并成功撤离。
+结单条件（单局）：
+· 仅统计金色、红色物资所占格数；单局填满 40 格并成功撤离即结单。
+· 单局未填满 40 格：不结单，继续履约直至达成或双方约定止付。
 
-计数说明：
-· 头、甲、枪、零件不算入格
-· 金弹：一组 60 发算 1 格
+计数规则：
+· 满耐久红色修理包（红修）：按 4 格计。
+· 一组金弹：按 1 格计（具体「一组」口径以店内解释为准）。
 
-板板须知：游戏过程中老板不得故意丢弃对应物资；若发现故意丢弃，直接结单。
+保底：
+· 约定基础保底 1288W；本玩法为「单局填满结单」向，**保底无上限** 的叠加口径以客服与店内执行为准（与未结单局区分）。
+
+板板须知：不得故意丢弃用于计格的物资；若发现故意丢弃，按店内规则可直结。
       `.trim(),
       ruleItems: [
-        { title: '装载', content: '金+红装满 40 格大红包撤离' },
-        { title: '不计', content: '头/甲/枪/零件不计格' },
-        { title: '金弹', content: '60 发一组计 1 格' },
-        { title: '违规', content: '老板故意丢物资 → 直接结单' }
+        { title: '价格/保底', content: '488R · 保底 1288W · 保底无上限（细则以店内为准）' },
+        { title: '结单', content: '单局金/红计格填满 40 格并撤离；未满不结单' },
+        { title: '计数', content: '满耐红修=4格；一组金弹=1格' },
+        { title: '违规', content: '故意丢计格物资 → 按店内可直结' }
       ],
-      priority: 73,
-      isHot: false,
+      priority: 87,
+      isHot: true,
       showInList: true,
-      views: 2320
+      views: 2400
+    },
+    {
+      id: 'fun-full-load-advanced-688',
+      categoryId: 'fun',
+      orderType: 'fun_full_load_advanced',
+      series: '趣味单',
+      title: '满载而归 · 进阶版 688R',
+      subtitle: '单局仅金/红计格；不计子弹与红修；40格结单',
+      tags: ['趣味单', '满载而归', '进阶版'],
+      image: asset(`images/covers/fun-full-load-advanced-688.webp`),
+      heroImage: asset(`images/covers/fun-full-load-advanced-688.webp`),
+      heroTitle: '满载而归 · 进阶版',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('688R 保底1688W · 单局40格', 688, 'R', 1688, 'W'),
+      details: `
+满载而归 · 进阶版
+
+价格：688R，保底 1688W（万）。
+
+结单条件（单局）：
+· 仅统计金色、红色物资所占格数；**不计算子弹与红色修理包（红修）**。
+· 单局填满 40 格并成功撤离即结单；单局未满 40 格不结单。
+
+保底：
+· 约定基础保底 1688W；**保底无上限** 的叠加口径以客服与店内执行为准。
+
+板板须知：不得故意丢弃用于计格的物资；若发现故意丢弃，按店内规则可直结。
+      `.trim(),
+      ruleItems: [
+        { title: '价格/保底', content: '688R · 保底 1688W · 保底无上限（细则以店内为准）' },
+        { title: '结单', content: '单局金/红计格填满 40 格并撤离；未满不结单' },
+        { title: '不计', content: '子弹、红修不计入格数' },
+        { title: '违规', content: '故意丢计格物资 → 按店内可直结' }
+      ],
+      priority: 86,
+      isHot: true,
+      showInList: true,
+      views: 2380
     },
     {
       id: 'fun-infinite-refill-568',
@@ -1145,6 +1192,386 @@ AI改枪单
       isHot: true,
       showInList: true,
       views: 3680
+    },
+    {
+      id: 'fun-space-ring-tour-1288',
+      categoryId: 'fun',
+      orderType: 'fun_space_ring_tour',
+      series: '趣味单',
+      title: '环游航天城 · 1288R',
+      subtitle: '累计5个不同复活点成功撤离；单局带出＞666万；不达标继续打',
+      tags: ['趣味单', '航天', '复活点', '撤离'],
+      image: asset(`images/covers/fun-space-ring-tour-1288.webp`),
+      heroImage: asset(`images/covers/fun-space-ring-tour-1288.webp`),
+      heroTitle: '环游航天城',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('1288R · 五处不同复活点撤离', 1288, 'R', null, null),
+      details: `
+环游航天城
+
+价格：1288R（五处不同复活点）。
+
+履约目标：
+· 累计在 **5 个不同复活点** 各自完成 **一次成功撤离**（复活点以当局出生/选点及店内解释为准）。
+· 每一局在成功撤离的前提下，单局带出须 **＞666 万**（哈夫币/带出价值口径以店内为准）；未达标则继续对局直至整体目标完成或双方约定止付。
+
+炸单与保底：
+· **炸单不加保底**（未达约定结单条件或店内认定的炸单情形，不因此叠加、上浮保底额度）。
+      `.trim(),
+      ruleItems: [
+        { title: '价格', content: '1288R · 五处不同复活点各撤离一次' },
+        { title: '单局', content: '成功撤离且单局带出＞666万' },
+        { title: '不达标', content: '继续打直至累计目标完成' },
+        { title: '炸单', content: '不加保底' }
+      ],
+      priority: 95,
+      isHot: true,
+      showInList: true,
+      views: 3900
+    },
+    {
+      id: 'fun-unspoken-secret-688',
+      categoryId: 'fun',
+      orderType: 'fun_unspoken_secret',
+      series: '趣味单',
+      title: '不能说的秘密 · 688R',
+      subtitle: '老板摸金/红让打手猜；金猜错+50W、红猜错+100W',
+      tags: ['趣味单', '猜物', '互动'],
+      image: asset(`images/covers/fun-unspoken-secret-688.webp`),
+      heroImage: asset(`images/covers/fun-unspoken-secret-688.webp`),
+      heroTitle: '不能说的秘密',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('688R 保底1088W', 688, 'R', 1088, 'W'),
+      details: `
+不能说的秘密
+
+价格：688R，保底 1088W（万）。
+
+流程：
+· 老板事先将本轮要猜的摸金/红色物资放入 **指定容器**（容器与操作顺序以店内约定为准）。
+· 老板告知打手 **格数与类型提示**（例如：工艺藏品类），由打手逐件猜测具体物资。
+· **打手上交本局的战利品不参与** 本猜题玩法计数（与猜题池区分）。
+
+加价规则（猜错叠加保底 W）：
+· 猜错 **金**：+50W。
+· 猜错 **红**：+100W。
+· 每一个都能猜：指按轮次逐件猜测，直至本局约定流程结束（细则以客服确认为准）。
+      `.trim(),
+      ruleItems: [
+        { title: '价格/保底', content: '688R · 保底 1088W' },
+        { title: '流程', content: '老板先放容器 → 告知格数与类型 → 打手猜' },
+        { title: '排除', content: '打手上交物资不参与猜题' },
+        { title: '加价', content: '金猜错 +50W · 红猜错 +100W' }
+      ],
+      priority: 94,
+      isHot: true,
+      showInList: true,
+      views: 3880
+    },
+    {
+      id: 'fun-golden-ammo-supplier-688',
+      categoryId: 'fun',
+      orderType: 'fun_golden_ammo_supplier',
+      series: '趣味单',
+      title: '进货商 · 688R 保底1388W',
+      subtitle: '累计1000发金弹结单；1发AWM=30发金弹；安全箱带出也算',
+      tags: ['趣味单', '金弹', '累计'],
+      image: asset(`images/covers/fun-golden-ammo-supplier-688.webp`),
+      heroImage: asset(`images/covers/fun-golden-ammo-supplier-688.webp`),
+      heroTitle: '进货商',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('688R 保底1388W', 688, 'R', 1388, 'W'),
+      details: `
+进货商
+
+价格：688R，保底 1388W（万）。
+
+结单条件：
+· 累计获得 **1000 发「金弹」等效** 即结单。
+· 折算：**1 发 AWM 子弹 = 30 发金弹**（等效口径以店内解释为准）。
+
+撤离与计数：
+· 当局撤离失败时，若金弹/折算物已进入 **安全箱并成功带出**，仍可计入累计。
+· 未入安全箱的背包等物资是否计入，以客服与对局执行为准。
+      `.trim(),
+      ruleItems: [
+        { title: '价格/保底', content: '688R · 保底 1388W' },
+        { title: '结单', content: '累计 1000 发金弹等效' },
+        { title: '折算', content: '1 发 AWM = 30 发金弹' },
+        { title: '计数', content: '撤离失败时安全箱带出仍计（细则以店内为准）' }
+      ],
+      priority: 93,
+      isHot: true,
+      showInList: true,
+      views: 3860
+    },
+    {
+      id: 'fun-raven-express-488',
+      categoryId: 'fun',
+      orderType: 'fun_raven_express',
+      series: '趣味单',
+      title: '渡鸦快递箱 · 488R 保底1088W',
+      subtitle: '仅监狱；累计开5个；炸弹+100W毒气+50W；开前猜中类型+50W',
+      tags: ['趣味单', '监狱', '渡鸦箱'],
+      image: asset(`images/covers/fun-raven-express-488.webp`),
+      heroImage: asset(`images/covers/fun-raven-express-488.webp`),
+      heroTitle: '渡鸦快递箱',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('488R 保底1088W', 488, 'R', 1088, 'W'),
+      details: `
+渡鸦快递箱
+
+价格：488R，保底 1088W（万）。
+
+地图：仅 **绝密监狱**（与店内约定不一致时以客服确认为准）。
+
+任务：
+· 累计成功开启 **5 个渡鸦快递箱**（箱名以游戏内为准）。
+
+撤离与计数：
+· **须撤离成功** 当局才计入「开启数量」；撤离失败则本局开启数量 **不累计**。
+
+加价（保底 W）：
+· 开出 **炸弹**：+100W。
+· 开出 **毒气**：+50W。
+· 开启前可猜本箱类型，**猜中**：+50W（猜题规则以店内执行为准）。
+      `.trim(),
+      ruleItems: [
+        { title: '价格/保底', content: '488R · 保底 1088W' },
+        { title: '地图', content: '仅监狱' },
+        { title: '任务', content: '累计开 5 个渡鸦快递箱' },
+        { title: '撤离', content: '须撤离成功才计开启数' },
+        { title: '加价', content: '炸弹+100W · 毒气+50W · 猜中类型+50W' }
+      ],
+      priority: 92,
+      isHot: true,
+      showInList: true,
+      views: 3840
+    },
+    {
+      id: 'fun-shawshank-escape-688',
+      categoryId: 'fun',
+      orderType: 'fun_shawshank_escape',
+      series: '趣味单',
+      title: '肖生克的救赎 · 688R 保底1688W',
+      subtitle: '三个撤离点各「越狱」一次；单局撤离带出＞666万',
+      tags: ['趣味单', '监狱', '撤离点'],
+      image: asset(`images/covers/fun-shawshank-escape-688.webp`),
+      heroImage: asset(`images/covers/fun-shawshank-escape-688.webp`),
+      heroTitle: '肖生克的救赎',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('688R 保底1688W', 688, 'R', 1688, 'W'),
+      details: `
+肖生克的救赎
+
+价格：688R，保底 1688W（万）。
+
+履约目标：
+· **三个不同撤离点** 各完成 **一次「越狱」式撤离**（「越狱」定义：从指定撤离点成功撤离，具体点位清单以店内/地图赛季为准）。
+· 每一次成功撤离的当局，单局带出须 **＞666 万**（口径以店内为准）。
+
+说明：地图与撤离点名称随版本变化，下单前请与客服确认当前可用撤离点是否满足「三点各一次」。
+      `.trim(),
+      ruleItems: [
+        { title: '价格/保底', content: '688R · 保底 1688W' },
+        { title: '撤离点', content: '三个不同撤离点各越狱撤离一次' },
+        { title: '单局', content: '每次成功撤离须带出＞666万' },
+        { title: '备注', content: '点位随版本变，以客服确认为准' }
+      ],
+      priority: 91,
+      isHot: true,
+      showInList: true,
+      views: 3820
+    },
+    {
+      id: 'fun-self-reliance-juemi-328',
+      categoryId: 'fun',
+      orderType: 'fun_self_reliance_juemi',
+      series: '趣味单',
+      title: '自力更生单（绝密）· 328R 保底688W',
+      subtitle: '第一局起装+杀人机/真人加保底，打手只报信息救人；第二局正常护航',
+      tags: ['趣味单', '绝密', '自力更生'],
+      image: asset(`images/covers/fun-self-reliance-juemi-328.webp`),
+      heroImage: asset(`images/covers/fun-self-reliance-juemi-328.webp`),
+      heroTitle: '自力更生单',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('328R 保底688W · 两局制', 328, 'R', 688, 'W'),
+      details: `
+自力更生单（绝密）
+
+价格：328R，保底 688W（万）。
+
+第一局（计保底局）：
+· 打手为老板 **起装备**（装备档次以店内约定为准）。
+· 打手职责：**只报信息、救人**，不以常规护航输出为主（执行细则以客服确认为准）。
+· 加价：**击杀人机 +10W 保底**；**击杀真人 +100W 保底**（击杀认定以店内为准）。
+· **第一局计入本单保底结算口径**。
+
+第二局：
+· **正常护航**（与店内常规绝密护航口径对齐，具体档位另议）。
+
+说明：两局地图、模式以预约时客服确认为准。
+      `.trim(),
+      ruleItems: [
+        { title: '价格/保底', content: '328R · 保底 688W' },
+        { title: '第一局', content: '起装 · 打手只报信息/救人 · 人机+10W 真人+100W' },
+        { title: '第二局', content: '正常护航' },
+        { title: '备注', content: '绝密；细则以客服确认为准' }
+      ],
+      priority: 90,
+      isHot: true,
+      showInList: true,
+      views: 3800
+    },
+    {
+      id: 'fun-shield-heal-double-388',
+      categoryId: 'fun',
+      orderType: 'fun_shield_heal_double',
+      series: '趣味单',
+      title: '盾盾奶 · 双护 388R 保底988W',
+      subtitle: '仅第一局计保底；深蓝护老板男医/蝶；每杀1人+100W；全程盾盾奶',
+      tags: ['趣味单', '盾盾奶', '双护'],
+      image: asset(`images/covers/fun-shield-heal-double-388.webp`),
+      heroImage: asset(`images/covers/fun-shield-heal-double-388.webp`),
+      heroTitle: '盾盾奶 · 双护',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('双护 388R 保底988W', 388, 'R', 988, 'W'),
+      details: `
+盾盾奶 · 双护
+
+价格：388R，保底 988W（万）。
+
+阵容：
+· **全程盾盾奶组合**（干员组合以店内解释为准，一般为双盾系保护 + 治疗向配合）。
+· 打手 **深蓝** 承担保护；老板选用 **男医 / 蜂医**（或与店内约定的治疗位组合）。
+
+保底局次：
+· **仅第一局** 计入本单约定保底；后续局次规则以客服确认为准。
+
+击杀加价：
+· **每击杀 1 名敌方玩家**：+100W 保底（击杀认定以店内为准）。
+      `.trim(),
+      ruleItems: [
+        { title: '价格/保底', content: '双护 388R · 保底 988W' },
+        { title: '阵容', content: '深蓝护 + 老板男医/蜂医 · 全程盾盾奶' },
+        { title: '局次', content: '仅第一局计保底' },
+        { title: '加价', content: '每击杀 1 人 +100W' }
+      ],
+      priority: 89,
+      isHot: true,
+      showInList: true,
+      views: 3780
+    },
+    {
+      id: 'fun-shield-heal-single-388',
+      categoryId: 'fun',
+      orderType: 'fun_shield_heal_single',
+      series: '趣味单',
+      title: '盾盾奶 · 单护 388R 保底688W',
+      subtitle: '仅第一局计保底；深蓝护老板男医/蜂医；每杀1人+100W；全程盾盾奶',
+      tags: ['趣味单', '盾盾奶', '单护'],
+      image: asset(`images/covers/fun-shield-heal-single-388.webp`),
+      heroImage: asset(`images/covers/fun-shield-heal-single-388.webp`),
+      heroTitle: '盾盾奶 · 单护',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('单护 388R 保底688W', 388, 'R', 688, 'W'),
+      details: `
+盾盾奶 · 单护
+
+价格：388R，保底 688W（万）。
+
+阵容与规则同 **双护版本**，差异仅为 **单护** 价位与保底额度；详见双护条目中的「盾盾奶」「仅第一局计保底」「每杀一人 +100W」等说明。
+
+下单时请备注 **单护** 或 **双护**，避免与另一档位混淆。
+      `.trim(),
+      ruleItems: [
+        { title: '价格/保底', content: '单护 388R · 保底 688W' },
+        { title: '阵容', content: '深蓝 + 老板男医/蜂医 · 盾盾奶（单护执行）' },
+        { title: '局次', content: '仅第一局计保底' },
+        { title: '加价', content: '每击杀 1 人 +100W' }
+      ],
+      priority: 88,
+      isHot: true,
+      showInList: true,
+      views: 3760
+    },
+    {
+      id: 'fun-brave-certificate-phase1',
+      categoryId: 'fun',
+      orderType: 'fun_brave_certificate_phase1',
+      series: '趣味单',
+      title: '勇者之证 · 第一阶段',
+      subtitle: '上号代做68R｜跟车388R｜打手护航788R；号上备1500W哈夫币；卡战备进图',
+      tags: ['趣味单', '勇者之证', '第一阶段'],
+      image: asset(`images/covers/fun-brave-certificate-phase1.webp`),
+      heroImage: asset(`images/covers/fun-brave-certificate-phase1.webp`),
+      heroTitle: '勇者之证 · 第一阶段',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('68R～788R · 三档（见详情）', 68, 'R', null, null),
+      details: `
+勇者之证 · 第一阶段
+
+号上准备：
+· 账号内需准备 **1500W 哈夫币**（以店内核验口径为准）。
+
+履约方式（下单时请说明所选档）：
+
+1）**上号代做**：**68R**（由店内上号代完成对应流程，细则以客服确认为准）。
+
+2）**跟车**：**388R**（老板跟车完成，执行口径以客服确认为准）。
+
+3）**打手护航做**：**788R**（打手护航完成本阶段目标；**卡战备进图即可**，战备定义以当前赛季/店内解释为准）。
+      `.trim(),
+      ruleItems: [
+        { title: '号上准备', content: '1500W 哈夫币' },
+        { title: '上号代做', content: '68R' },
+        { title: '跟车', content: '388R' },
+        { title: '打手护航', content: '788R · 卡战备进图即可' }
+      ],
+      priority: 98,
+      isHot: true,
+      showInList: true,
+      views: 3920
+    },
+    {
+      id: 'fun-brave-certificate-phase2',
+      categoryId: 'fun',
+      orderType: 'fun_brave_certificate_phase2',
+      series: '趣味单',
+      title: '炫彩勇者之证 · 第二阶段',
+      subtitle: '上号代做328R/人；号上5000W+10发AW+2龟包；护航2288R；暂不支持跟车；卡战备进图',
+      tags: ['趣味单', '勇者之证', '炫彩', '第二阶段'],
+      image: asset(`images/covers/fun-brave-certificate-phase2.webp`),
+      heroImage: asset(`images/covers/fun-brave-certificate-phase2.webp`),
+      heroTitle: '炫彩勇者之证 · 第二阶段',
+      heroSubtitle: '果壳电竞',
+      pricing: mkPricing('328R/人～2288R · 上号/护航', 328, 'R', null, null),
+      details: `
+炫彩勇者之证 · 第二阶段
+
+号上准备：
+· **5000W 哈夫币**
+· **10 发 AWM 子弹**
+· **2 个龟包**（物资名称以游戏内为准）
+
+上号代做：
+· **328R / 人**（多人计价按人数累计，以客服确认为准）。
+
+打手护航：
+· **2288R**（**卡战备进图即可**，战备定义以当前赛季/店内解释为准）。
+
+重要：**本阶段暂不支持跟车**（仅支持上号代做或打手护航等店内开放方式，以客服确认为准）。
+      `.trim(),
+      ruleItems: [
+        { title: '号上准备', content: '5000W 哈夫币 · 10 发 AW · 2 个龟包' },
+        { title: '上号代做', content: '328R / 人' },
+        { title: '打手护航', content: '2288R · 卡战备进图即可' },
+        { title: '跟车', content: '暂不支持' }
+      ],
+      priority: 97,
+      isHot: true,
+      showInList: true,
+      views: 3910
     },
     {
       id: 'bigred-catalog',

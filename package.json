@@ -8,6 +8,7 @@
     "generate:covers": "node scripts/generate-menu-covers.mjs",
     "generate:covers:force": "node scripts/generate-menu-covers.mjs --force",
     "import:ai-covers": "node scripts/import-ai-covers.mjs",
+    "list:ai-covers": "node scripts/list-ai-cover-tasks.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
